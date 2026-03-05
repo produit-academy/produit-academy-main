@@ -44,11 +44,13 @@ a:hover {
 .container {
   min-height: 100vh;
   display: flex;
+  flex-direction: column;
   align-items: center;
-  justify-content: center;
-  padding: 2rem;
+  justify-content: flex-start;
+  /* Stack from top to bottom */
+  padding: 0;
   position: relative;
-  overflow: hidden;
+  overflow-x: hidden;
 }
 
 /* Base Layout Container */
@@ -61,15 +63,15 @@ a:hover {
   max-width: 1200px;
   z-index: 10;
   text-align: center;
+  min-height: 100vh;
+  /* Force the main hero section to take the full screen */
+  padding: 2rem;
 }
 
 /* Glass Buttons */
 .btn-primary {
   display: inline-block;
   background: var(--accent-green);
-  color: white;
-  padding: 12px 32px;
-  border-radius: 12px;
   font-weight: 600;
   font-family: var(--font-sans);
   border: none;
@@ -157,49 +159,31 @@ a:hover {
 }
 
 .float-1 {
-  top: 15%;
-  left: 15%;
-  transform: rotate(-10deg);
   color: #F59E0B;
 }
 
 /* Sparkles */
 .float-2 {
-  top: 30%;
-  right: 15%;
-  transform: rotate(15deg);
   color: #EF4444;
 }
 
 /* Rocket */
 .float-3 {
-  bottom: 20%;
-  left: 25%;
-  transform: rotate(-5deg);
   color: #3B82F6;
 }
 
 /* Sigma */
 .float-4 {
-  top: 60%;
-  right: 20%;
-  transform: rotate(10deg);
   color: #F59E0B;
 }
 
 /* Lightbulb */
 .float-5 {
-  bottom: 35%;
-  left: 10%;
-  transform: rotate(-15deg);
   color: #10B981;
 }
 
 /* Pi */
 .float-6 {
-  top: 10%;
-  right: 30%;
-  transform: rotate(25deg);
   color: #8B5CF6;
 }
 

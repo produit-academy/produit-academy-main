@@ -1,6 +1,7 @@
 import Head from 'next/head';
 import { motion } from 'framer-motion';
 import { Sparkles, Rocket, Sigma, Lightbulb, Pi, PartyPopper } from 'lucide-react';
+import Footer from '../components/Footer';
 
 export default function CleanComingSoon() {
   const containerVariants = {
@@ -33,43 +34,49 @@ export default function CleanComingSoon() {
       <div className="floating-canvas">
         <motion.div
           className="float-icon-wrapper float-1"
-          animate={{ y: [0, -15, 0], rotate: [-10, -5, -10] }}
-          transition={{ repeat: Infinity, duration: 4, ease: "easeInOut" }}
+          initial={{ top: "50%", left: "50%", x: "-50%", y: "-50%", scale: 0, opacity: 0 }}
+          animate={{ top: "15%", left: "15%", x: 0, y: [0, -15, 0], scale: 1, opacity: 1, rotate: [-10, -5, -10] }}
+          transition={{ duration: 1.5, ease: "easeOut", y: { repeat: Infinity, duration: 4, ease: "easeInOut", delay: 1.5 }, rotate: { repeat: Infinity, duration: 4, ease: "easeInOut", delay: 1.5 } }}
         >
           <Sparkles size={28} />
         </motion.div>
         <motion.div
           className="float-icon-wrapper float-2"
-          animate={{ y: [0, 20, 0], rotate: [15, 25, 15] }}
-          transition={{ repeat: Infinity, duration: 5, ease: "easeInOut" }}
+          initial={{ top: "50%", right: "50%", x: "50%", y: "-50%", scale: 0, opacity: 0 }}
+          animate={{ top: "30%", right: "15%", x: 0, y: [0, 20, 0], scale: 1, opacity: 1, rotate: [15, 25, 15] }}
+          transition={{ duration: 1.5, ease: "easeOut", delay: 0.2, y: { repeat: Infinity, duration: 5, ease: "easeInOut", delay: 1.7 }, rotate: { repeat: Infinity, duration: 5, ease: "easeInOut", delay: 1.7 } }}
         >
           <Rocket size={24} />
         </motion.div>
         <motion.div
           className="float-icon-wrapper float-3"
-          animate={{ x: [0, -15, 0], rotate: [-5, 5, -5] }}
-          transition={{ repeat: Infinity, duration: 6, ease: "easeInOut" }}
+          initial={{ bottom: "50%", left: "50%", x: "-50%", y: "50%", scale: 0, opacity: 0 }}
+          animate={{ bottom: "20%", left: "25%", x: [0, -15, 0], y: 0, scale: 1, opacity: 1, rotate: [-5, 5, -5] }}
+          transition={{ duration: 1.5, ease: "easeOut", delay: 0.4, x: { repeat: Infinity, duration: 6, ease: "easeInOut", delay: 1.9 }, rotate: { repeat: Infinity, duration: 6, ease: "easeInOut", delay: 1.9 } }}
         >
           <Sigma size={28} />
         </motion.div>
         <motion.div
           className="float-icon-wrapper float-4"
-          animate={{ y: [0, -25, 0], rotate: [10, 0, 10] }}
-          transition={{ repeat: Infinity, duration: 5.5, ease: "easeInOut" }}
+          initial={{ top: "50%", right: "50%", x: "50%", y: "-50%", scale: 0, opacity: 0 }}
+          animate={{ top: "60%", right: "20%", x: 0, y: [0, -25, 0], scale: 1, opacity: 1, rotate: [10, 0, 10] }}
+          transition={{ duration: 1.5, ease: "easeOut", delay: 0.6, y: { repeat: Infinity, duration: 5.5, ease: "easeInOut", delay: 2.1 }, rotate: { repeat: Infinity, duration: 5.5, ease: "easeInOut", delay: 2.1 } }}
         >
           <Lightbulb size={26} />
         </motion.div>
         <motion.div
           className="float-icon-wrapper float-5"
-          animate={{ x: [0, 20, 0], y: [0, -10, 0] }}
-          transition={{ repeat: Infinity, duration: 7, ease: "easeInOut" }}
+          initial={{ bottom: "50%", left: "50%", x: "-50%", y: "50%", scale: 0, opacity: 0 }}
+          animate={{ bottom: "35%", left: "10%", x: [0, 20, 0], y: [0, -10, 0], scale: 1, opacity: 1 }}
+          transition={{ duration: 1.5, ease: "easeOut", delay: 0.8, x: { repeat: Infinity, duration: 7, ease: "easeInOut", delay: 2.3 }, y: { repeat: Infinity, duration: 7, ease: "easeInOut", delay: 2.3 } }}
         >
           <Pi size={28} />
         </motion.div>
         <motion.div
           className="float-icon-wrapper float-6"
-          animate={{ scale: [1, 1.1, 1], rotate: [25, 15, 25] }}
-          transition={{ repeat: Infinity, duration: 4.5, ease: "easeInOut" }}
+          initial={{ top: "50%", right: "50%", x: "50%", y: "-50%", scale: 0, opacity: 0 }}
+          animate={{ top: "10%", right: "30%", x: 0, y: 0, scale: [1, 1.1, 1], opacity: 1, rotate: [25, 15, 25] }}
+          transition={{ duration: 1.5, ease: "easeOut", delay: 1.0, scale: { repeat: Infinity, duration: 4.5, ease: "easeInOut", delay: 2.5 }, rotate: { repeat: Infinity, duration: 4.5, ease: "easeInOut", delay: 2.5 } }}
         >
           <PartyPopper size={26} />
         </motion.div>
@@ -100,6 +107,8 @@ export default function CleanComingSoon() {
           </motion.p>
         </motion.div>
       </main>
+
+      <Footer />
     </div>
   );
 }
