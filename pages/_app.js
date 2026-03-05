@@ -6,8 +6,8 @@ function MyApp({ Component, pageProps }) {
   return (
     <>
       <Head>
-        <title>Produit Academy | Magic in Progress ✨</title>
-        <meta name="description" content="Produit Academy is building the future of education." />
+        <title>Produit Academy - Learning, Mentorship & Skill Development Platform</title>
+        <meta name="description" content="Produit Academy is a modern platform for mentorship, learning, and student development. Coming soon."></meta>
       </Head>
       <Component {...pageProps} />
     </>
