@@ -19,6 +19,11 @@ export default function Footer() {
                             </a>
                         </li>
                         <li>
+                            <a href="https://classes.produitacademy.com" target="_blank" rel="noreferrer">
+                                Classes Portal (Live Classes)
+                            </a>
+                        </li>
+                        <li>
                             <a href="https://careers.produitacademy.com" target="_blank" rel="noreferrer">
                                 Careers
                             </a>
