@@ -2,6 +2,7 @@
 import Head from 'next/head';
 import { useRouter } from 'next/router';
 import '../styles/globals.css';
+import '../styles/homepage.css';
 import '../styles/admin.css';
 import { AdminAuthProvider } from '../lib/auth';
 
