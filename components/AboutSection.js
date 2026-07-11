@@ -33,18 +33,18 @@ export default function AboutSection() {
           transition={{ delay: 0.15 }}
         >
           <p>
-            Produit Academy is an education ecosystem built around one idea:
-            excellence should be accessible, structured, and measurable. We bring
-            together exam preparation, live classroom teaching, and a creative
-            team of mentors and content creators - all under one roof, so students
-            don't have to juggle five different apps and tutors to get where they
-            want to go.
+            Produit Academy's mission is to empower students through
+            high-quality online education, offering a comprehensive range of
+            basic to advanced courses that strengthen academic foundations,
+            boost knowledge, and inspire a lifelong love for learning.
           </p>
           <p>
-            Whether you're an engineering student prepping for GATE, a student
-            who wants live, teacher-led classes with real accountability, or
-            someone who wants to build a career in education and media - Produit
-            Academy has a platform for you.
+            We know that every student's learning journey is unique, which is
+            why our approach is built entirely around your success. With
+            personal 1:1 classes, dedicated mentors, and a growing ecosystem
+            that also includes GATE exam preparation and career opportunities
+            in education and media - Produit Academy is where learning comes
+            alive.
           </p>
         </motion.div>
       </div>

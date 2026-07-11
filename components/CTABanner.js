@@ -28,11 +28,11 @@ export default function CTABanner() {
             to join our team - there's a place for you at Produit Academy.
           </p>
           <div className="cta-banner__buttons">
-            <a href="https://gate.produitacademy.com" className="btn btn--white btn--lg">
-              Start GATE Prep <ArrowRight size={16} />
-            </a>
-            <a href="https://classes.produitacademy.com" className="btn btn--white-secondary btn--lg">
+            <a href="https://classes.produitacademy.com" className="btn btn--white btn--lg">
               Join Live Classes <ArrowRight size={16} />
+            </a>
+            <a href="https://gate.produitacademy.com" className="btn btn--white-secondary btn--lg">
+              Explore GATE Prep <ArrowRight size={16} />
             </a>
             <a href="https://careers.produitacademy.com" className="btn btn--white-secondary btn--lg">
               View Careers <ArrowRight size={16} />

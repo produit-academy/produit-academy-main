@@ -1,27 +1,31 @@
 import React from 'react';
 import { motion } from 'framer-motion';
-import { Lightbulb, BarChart3, Users, Sprout } from 'lucide-react';
+import { Sparkles, Brain, Clock, Globe } from 'lucide-react';
 
 const features = [
   {
-    icon: <Lightbulb size={28} />,
-    title: 'Affordable, Transparent Pricing',
-    description: 'Full mock-test access for as little as ₹29 - no hidden fees.',
+    icon: <Sparkles size={28} />,
+    title: 'Personal Attention',
+    description:
+      'Say goodbye to getting lost in a crowded classroom. We provide the dedicated, one-on-one focus you deserve.',
   },
   {
-    icon: <BarChart3 size={28} />,
-    title: 'Real Analytics, Not Guesswork',
-    description: 'Every test and class comes with data - know exactly where you stand.',
+    icon: <Brain size={28} />,
+    title: 'Clear Concepts',
+    description:
+      'We break down the most complex topics into easily digestible lessons so you actually understand the material, rather than just memorizing it.',
   },
   {
-    icon: <Users size={28} />,
-    title: 'Human Mentorship',
-    description: 'Real mentors and teachers oversee your progress, not just an algorithm.',
+    icon: <Clock size={28} />,
+    title: 'Flexible Learning',
+    description:
+      'Education that adapts to your busy lifestyle, allowing you to learn at your own pace, on your own time.',
   },
   {
-    icon: <Sprout size={28} />,
-    title: 'One Growing Ecosystem',
-    description: 'Prep, learn, and eventually work with us - all under one academy.',
+    icon: <Globe size={28} />,
+    title: 'Global Syllabus Support',
+    description:
+      'No matter where you are located or what curriculum you follow, our expert educators are equipped to guide you.',
   },
 ];
 
@@ -45,8 +49,12 @@ export default function FeatureGrid() {
           viewport={{ once: true, margin: '-80px' }}
           className="section__header"
         >
-          <span className="section__label">Why Us</span>
-          <h2 className="section__heading">Why Students & Educators Choose Us</h2>
+          <span className="section__label">Why Choose Us</span>
+          <h2 className="section__heading">Why Students Choose Produit Academy</h2>
+          <p className="section__subheading">
+            Don't leave your academic success to chance. Seek knowledge actively
+            with a team that puts you first.
+          </p>
         </motion.div>
 
         <div className="feature-grid">

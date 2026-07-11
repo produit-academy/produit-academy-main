@@ -16,13 +16,13 @@ export default function HomePage() {
         <title>Produit Academy - One to one, Live Classes & Careers | Kollam, Kerala</title>
         <meta
           name="description"
-          content="Produit Academy is a Kerala-based education ecosystem offering GATE exam preparation, live interactive classes, and career opportunities in education and media. Start your journey today."
+          content="Produit Academy is a Kerala-based online tuition platform offering personal 1:1 live classes, academic support, GATE exam preparation, and career opportunities in education. Start your journey today."
         />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
-        <meta property="og:title" content="Produit Academy - Unlock Your Potential" />
+        <meta property="og:title" content="Produit Academy - 1:1 Live Classes & Academic Support" />
         <meta
           property="og:description"
-          content="One academy, three platforms - GATE prep, live classes, and careers. Built for learners and educators."
+          content="Personal 1:1 live classes, dedicated mentors, GATE prep, and careers - all under one academy. Seek knowledge actively."
         />
         <meta property="og:type" content="website" />
         <meta property="og:url" content="https://produitacademy.com" />

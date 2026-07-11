@@ -5,11 +5,27 @@ import PlatformCard from './PlatformCard';
 
 const platforms = [
   {
+    icon: <GraduationCap size={28} />,
+    title: 'Produit Academy Classes',
+    tagline: 'Your classroom, reimagined.',
+    description:
+      'A live-learning portal that connects students, teachers, and mentors in one place. Join scheduled 1:1 live classes, track attendance, and view your academic progress through a clean analytics dashboard - with mentors keeping an eye on your growth.',
+    features: [
+      'Personal 1:1 live interactive classes',
+      'Visual analytics dashboard for academic performance',
+      'Dedicated mentor oversight for accountability',
+      'Global syllabus support across curricula',
+    ],
+    link: 'https://classes.produitacademy.com',
+    linkLabel: 'Get Started',
+    accentColor: '#33ae78', // green (brand)
+  },
+  {
     icon: <BookOpen size={28} />,
     title: 'Produit Academy GATE',
     tagline: 'Ace GATE with data-driven prep.',
     description:
-      'A dedicated mock-test platform for GATE aspirants across Electrical, Mechanical, Civil, Computer Science, and Electronics & Communication. Take custom mock tests in a real exam-like interface, get topic-wise analytics, and track your progress - all starting at ₹29 for full access.',
+      'A dedicated mock-test platform for GATE aspirants across Electrical, Mechanical, Civil, Computer Science, and Electronics & Communication. Take custom mock tests in a real exam-like interface, get topic-wise analytics, and track your progress.',
     features: [
       'Custom mock tests (choose question count, duration, type)',
       'Real GATE exam interface',
@@ -19,21 +35,6 @@ const platforms = [
     link: 'https://gate.produitacademy.com',
     linkLabel: 'Start Learning',
     accentColor: '#3B82F6', // blue
-  },
-  {
-    icon: <GraduationCap size={28} />,
-    title: 'Produit Academy Classes',
-    tagline: 'Your classroom, reimagined.',
-    description:
-      'A live-learning portal that connects students, teachers, and mentors in one place. Join scheduled live classes via Google Meet/Zoom integration, track attendance, and view your academic progress through a clean analytics dashboard - with mentors keeping an eye on teacher compliance and at-risk students.',
-    features: [
-      'Live, interactive classes with one-click join',
-      'Visual analytics dashboard for academic performance',
-      'Dedicated mentor oversight for accountability',
-    ],
-    link: 'https://classes.produitacademy.com',
-    linkLabel: 'Login / Get Started',
-    accentColor: '#33ae78', // green (brand)
   },
   {
     icon: <Briefcase size={28} />,

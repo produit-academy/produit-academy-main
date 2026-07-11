@@ -31,7 +31,7 @@ export default function Hero() {
           animate="visible"
           custom={0}
         >
-          Building the Future of Learning
+          Seek Knowledge Actively
         </motion.span>
 
         <motion.h1
@@ -41,8 +41,8 @@ export default function Hero() {
           animate="visible"
           custom={1}
         >
-          Unlock Your Potential with{' '}
-          <span className="hero__headline-accent">Produit Academy</span>
+          Your Personal Path to{' '}
+          <span className="hero__headline-accent">Academic Excellence</span>
         </motion.h1>
 
         <motion.p
@@ -52,9 +52,10 @@ export default function Hero() {
           animate="visible"
           custom={2}
         >
-          One academy, three platforms - GATE exam preparation, live interactive
-          classes, and a growing team of educators and creators. Wherever you are
-          in your learning journey, Produit Academy meets you there.
+          At Produit Academy, we don't just teach - we empower. Personal 1:1 live
+          classes, dedicated mentors, and a learning approach built entirely around
+          your success. From school subjects to competitive exams, we meet you
+          where you are.
         </motion.p>
 
         <motion.div
@@ -85,7 +86,7 @@ export default function Hero() {
           </div>
           <div className="trust-chip">
             <GraduationCap size={16} />
-            <span>GATE Mock Tests · Live Classes · Careers</span>
+            <span>1:1 Classes · Academic Support · Live Interactive Learning</span>
           </div>
           <div className="trust-chip">
             <Instagram size={16} />

@@ -261,12 +261,12 @@
 }
 
 .hero__headline {
-  font-family: var(--font-sans);
+  font-family: var(--font-heading);
   font-size: clamp(2.4rem, 5.5vw, 3.8rem);
-  font-weight: 800;
+  font-weight: 700;
   color: var(--text-primary);
   line-height: 1.15;
-  letter-spacing: -0.03em;
+  letter-spacing: -0.01em;
   margin-bottom: 1.25rem;
 }
 
@@ -456,11 +456,11 @@
 }
 
 .section__heading {
-  font-family: var(--font-sans);
+  font-family: var(--font-heading);
   font-size: clamp(1.8rem, 4vw, 2.6rem);
-  font-weight: 800;
+  font-weight: 700;
   color: var(--text-primary);
-  letter-spacing: -0.02em;
+  letter-spacing: -0.01em;
   line-height: 1.2;
   margin-bottom: 0.75rem;
 }
@@ -720,11 +720,11 @@
 }
 
 .cta-banner__heading {
-  font-family: var(--font-sans);
+  font-family: var(--font-heading);
   font-size: clamp(2rem, 4vw, 2.8rem);
-  font-weight: 800;
+  font-weight: 700;
   color: #fff;
-  letter-spacing: -0.02em;
+  letter-spacing: -0.01em;
   margin-bottom: 1rem;
 }
 
