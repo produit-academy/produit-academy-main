@@ -3,7 +3,7 @@ import { motion } from 'framer-motion';
 import { Users, FileText, ClipboardCheck, TrendingUp } from 'lucide-react';
 
 /**
- * StatsStrip component — renders a row of stat counters.
+ * StatsStrip component - renders a row of stat counters.
  *
  * Each stat accepts an optional `value` prop. If a real number is provided,
  * it displays the number with a "+" suffix. If no value is provided (null/0),
