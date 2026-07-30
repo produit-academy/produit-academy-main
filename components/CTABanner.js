@@ -29,13 +29,13 @@ export default function CTABanner() {
           </p>
           <div className="cta-banner__buttons">
             <a href="https://classes.produitacademy.com" className="btn btn--white btn--lg">
-              Join Live Classes <ArrowRight size={16} />
+              Join a live class <ArrowRight size={16} />
             </a>
             <a href="https://gate.produitacademy.com" className="btn btn--white-secondary btn--lg">
-              Explore GATE Prep <ArrowRight size={16} />
+              Start a mock test <ArrowRight size={16} />
             </a>
             <a href="https://careers.produitacademy.com" className="btn btn--white-secondary btn--lg">
-              View Careers <ArrowRight size={16} />
+              Apply for a role <ArrowRight size={16} />
             </a>
           </div>
         </motion.div>

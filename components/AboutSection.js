@@ -39,12 +39,11 @@ export default function AboutSection() {
             boost knowledge, and inspire a lifelong love for learning.
           </p>
           <p>
-            We know that every student's learning journey is unique, which is
-            why our approach is built entirely around your success. With
-            personal 1:1 classes, dedicated mentors, and a growing ecosystem
-            that also includes GATE exam preparation and career opportunities
-            in education and media - Produit Academy is where learning comes
-            alive.
+            We know that every student's learning journey is unique. Our approach
+            is built entirely around your success with personal 1:1 classes and
+            dedicated mentors. We provide a complete educational ecosystem, from
+            school tuitions to GATE exam preparation, all supported by a team
+            of professional educators.
           </p>
         </motion.div>
       </div>

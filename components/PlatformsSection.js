@@ -1,11 +1,11 @@
 import React from 'react';
 import { motion } from 'framer-motion';
-import { BookOpen, GraduationCap, Briefcase } from 'lucide-react';
+import { MonitorPlay, FileEdit, Camera } from 'lucide-react';
 import PlatformCard from './PlatformCard';
 
 const platforms = [
   {
-    icon: <GraduationCap size={28} />,
+    icon: <MonitorPlay size={28} />,
     title: 'Produit Academy Classes',
     tagline: 'Your classroom, reimagined.',
     description:
@@ -17,11 +17,11 @@ const platforms = [
       'Global syllabus support across curricula',
     ],
     link: 'https://classes.produitacademy.com',
-    linkLabel: 'Get Started',
+    linkLabel: 'Join a live class',
     accentColor: '#33ae78', // green (brand)
   },
   {
-    icon: <BookOpen size={28} />,
+    icon: <FileEdit size={28} />,
     title: 'Produit Academy GATE',
     tagline: 'Ace GATE with data-driven prep.',
     description:
@@ -33,11 +33,11 @@ const platforms = [
       'Previous Year Questions & study notes (coming soon)',
     ],
     link: 'https://gate.produitacademy.com',
-    linkLabel: 'Start Learning',
+    linkLabel: 'Start a mock test',
     accentColor: '#3B82F6', // blue
   },
   {
-    icon: <Briefcase size={28} />,
+    icon: <Camera size={28} />,
     title: 'Produit Academy Careers',
     tagline: 'Build your creative career with us.',
     description:
@@ -48,7 +48,7 @@ const platforms = [
       'Video Presenter · Teacher · Mentor',
     ],
     link: 'https://careers.produitacademy.com',
-    linkLabel: 'Apply Now',
+    linkLabel: 'Apply for a role',
     accentColor: '#F59E0B', // orange/amber
   },
 ];

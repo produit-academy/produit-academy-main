@@ -1,19 +1,19 @@
 import React from 'react';
 import { motion } from 'framer-motion';
-import { Sparkles, Brain, Clock, Globe } from 'lucide-react';
+import { Users, Lightbulb, Clock, Globe } from 'lucide-react';
 
 const features = [
   {
-    icon: <Sparkles size={28} />,
+    icon: <Users size={28} />,
     title: 'Personal Attention',
     description:
-      'Say goodbye to getting lost in a crowded classroom. We provide the dedicated, one-on-one focus you deserve.',
+      'We provide dedicated, one-on-one focus to ensure each student receives the guidance they need.',
   },
   {
-    icon: <Brain size={28} />,
+    icon: <Lightbulb size={28} />,
     title: 'Clear Concepts',
     description:
-      'We break down the most complex topics into easily digestible lessons so you actually understand the material, rather than just memorizing it.',
+      'Our educators break down complex topics into clear lessons, prioritizing real understanding over memorization.',
   },
   {
     icon: <Clock size={28} />,
@@ -25,7 +25,7 @@ const features = [
     icon: <Globe size={28} />,
     title: 'Global Syllabus Support',
     description:
-      'No matter where you are located or what curriculum you follow, our expert educators are equipped to guide you.',
+      'Our educators are equipped to guide you through major global syllabuses and curricula, wherever you are located.',
   },
 ];
 

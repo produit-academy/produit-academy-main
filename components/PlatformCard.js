@@ -11,7 +11,6 @@ export default function PlatformCard({ icon, title, tagline, description, featur
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true, margin: '-60px' }}
       transition={{ duration: 0.6, ease: [0.16, 1, 0.3, 1], delay: index * 0.12 }}
-      whileHover={{ y: -6, transition: { duration: 0.25 } }}
     >
       <div className="platform-card__accent-bar" />
 
