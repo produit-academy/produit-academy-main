@@ -1,37 +1,15 @@
 import React from 'react';
-import { motion } from 'framer-motion';
-
-const sectionVariants = {
-  hidden: { opacity: 0, y: 40 },
-  visible: {
-    opacity: 1,
-    y: 0,
-    transition: { duration: 0.7, ease: [0.16, 1, 0.3, 1] },
-  },
-};
 
 export default function AboutSection() {
   return (
     <section id="about" className="section about-section">
       <div className="section__container section__container--narrow">
-        <motion.div
-          variants={sectionVariants}
-          initial="hidden"
-          whileInView="visible"
-          viewport={{ once: true, margin: '-80px' }}
-        >
+        <div className="section__header">
           <span className="section__label">About Us</span>
           <h2 className="section__heading">Who We Are</h2>
-        </motion.div>
+        </div>
 
-        <motion.div
-          className="about__body"
-          variants={sectionVariants}
-          initial="hidden"
-          whileInView="visible"
-          viewport={{ once: true, margin: '-80px' }}
-          transition={{ delay: 0.15 }}
-        >
+        <div className="about__body">
           <p>
             Produit Academy's mission is to empower students through
             high-quality online education, offering a comprehensive range of
@@ -45,7 +23,7 @@ export default function AboutSection() {
             school tuitions to GATE exam preparation, all supported by a team
             of professional educators.
           </p>
-        </motion.div>
+        </div>
       </div>
     </section>
   );

@@ -1,39 +1,30 @@
 import React from 'react';
-import { motion } from 'framer-motion';
 import { Users, FileText, ClipboardCheck, TrendingUp } from 'lucide-react';
-
-/**
- * StatsStrip component - renders a row of stat counters.
- *
- * Each stat accepts an optional `value` prop. If a real number is provided,
- * it displays the number with a "+" suffix. If no value is provided (null/0),
- * it shows friendly placeholder text so the page never shows "0+".
- */
 
 const defaultStats = [
   {
-    icon: <Users size={24} />,
+    icon: <Users size={22} />,
     label: 'Students Enrolled',
-    value: null, // Replace with real number when available
-    placeholder: 'Growing every day',
-  },
-  {
-    icon: <FileText size={24} />,
-    label: 'Previous Year Questions',
     value: null,
-    placeholder: 'Expanding library',
+    placeholder: 'Continuous Admissions',
   },
   {
-    icon: <ClipboardCheck size={24} />,
+    icon: <FileText size={22} />,
+    label: 'Previous Year Papers',
+    value: null,
+    placeholder: 'Curated Question Banks',
+  },
+  {
+    icon: <ClipboardCheck size={22} />,
     label: 'Mock Tests Delivered',
     value: null,
-    placeholder: 'Building momentum',
+    placeholder: 'Standardized Assessments',
   },
   {
-    icon: <TrendingUp size={24} />,
-    label: 'Success Rate',
+    icon: <TrendingUp size={22} />,
+    label: 'Academic Focus',
     value: null,
-    placeholder: 'Striving for excellence',
+    placeholder: 'Grades 6 to 12 & GATE',
   },
 ];
 
@@ -42,21 +33,14 @@ export default function StatsStrip({ stats = defaultStats }) {
     <section className="stats-strip">
       <div className="section__container">
         <div className="stats-grid">
-          {stats.map((stat, i) => (
-            <motion.div
-              key={stat.label}
-              className="stat-item"
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true, margin: '-40px' }}
-              transition={{ duration: 0.5, delay: i * 0.1 }}
-            >
+          {stats.map((stat) => (
+            <div key={stat.label} className="stat-item">
               <div className="stat-item__icon">{stat.icon}</div>
               <span className="stat-item__value">
                 {stat.value ? `${stat.value}+` : stat.placeholder}
               </span>
               <span className="stat-item__label">{stat.label}</span>
-            </motion.div>
+            </div>
           ))}
         </div>
       </div>

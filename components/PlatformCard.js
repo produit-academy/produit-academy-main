@@ -1,16 +1,11 @@
 import React from 'react';
-import { motion } from 'framer-motion';
 import { ArrowRight, Check } from 'lucide-react';
 
-export default function PlatformCard({ icon, title, tagline, description, features, link, linkLabel, accentColor, index }) {
+export default function PlatformCard({ icon, title, tagline, description, features, link, linkLabel, accentColor }) {
   return (
-    <motion.div
+    <div
       className="platform-card"
       style={{ '--card-accent': accentColor }}
-      initial={{ opacity: 0, y: 40 }}
-      whileInView={{ opacity: 1, y: 0 }}
-      viewport={{ once: true, margin: '-60px' }}
-      transition={{ duration: 0.6, ease: [0.16, 1, 0.3, 1], delay: index * 0.12 }}
     >
       <div className="platform-card__accent-bar" />
 
@@ -33,6 +28,6 @@ export default function PlatformCard({ icon, title, tagline, description, featur
         {linkLabel}
         <ArrowRight size={16} />
       </a>
-    </motion.div>
+    </div>
   );
 }

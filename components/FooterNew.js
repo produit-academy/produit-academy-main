@@ -13,7 +13,7 @@ export default function FooterNew() {
               <span className="footer-new__wordmark">Produit Academy</span>
             </div>
             <p className="footer-new__tagline">
-              Building the future of creative education and academic excellence.
+              1:1 online tuition for grades 6 to 12. Based in Kollam, Kerala.
             </p>
           </div>
 

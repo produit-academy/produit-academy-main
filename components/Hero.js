@@ -5,11 +5,11 @@ import TrueFocus from './TrueFocus';
 import MagicRings from './MagicRings';
 
 const fadeUp = {
-  hidden: { opacity: 0, y: 30 },
+  hidden: { opacity: 0, y: 15 },
   visible: (i) => ({
     opacity: 1,
     y: 0,
-    transition: { duration: 0.7, ease: [0.16, 1, 0.3, 1], delay: i * 0.12 },
+    transition: { duration: 0.35, ease: [0.16, 1, 0.3, 1], delay: i * 0.05 },
   }),
 };
 
@@ -36,9 +36,9 @@ export default function Hero() {
               manualMode={false}
               blurAmount={4}
               borderColor="var(--accent-green)"
-              glowColor="rgba(51, 174, 120, 0.4)"
-              animationDuration={1.5}
-              pauseBetweenAnimations={1.2}
+              glowColor="rgba(51, 174, 120, 0.3)"
+              animationDuration={1.2}
+              pauseBetweenAnimations={1.5}
             />
           </motion.div>
 

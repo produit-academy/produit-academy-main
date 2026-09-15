@@ -93,7 +93,7 @@ export default function Navbar() {
               initial={{ x: '100%' }}
               animate={{ x: 0 }}
               exit={{ x: '100%' }}
-              transition={{ type: 'spring', damping: 30, stiffness: 300 }}
+              transition={{ duration: 0.2, ease: 'easeOut' }}
             >
               <div className="mobile-menu__header">
                 <a href="#home" className="navbar__brand" onClick={(e) => handleNavClick(e, '#home')}>
@@ -110,18 +110,15 @@ export default function Navbar() {
               </div>
 
               <div className="mobile-menu__links">
-                {navLinks.map((link, i) => (
-                  <motion.a
+                {navLinks.map((link) => (
+                  <a
                     key={link.label}
                     href={link.href}
                     className="mobile-menu__link"
                     onClick={(e) => handleNavClick(e, link.href)}
-                    initial={{ opacity: 0, x: 20 }}
-                    animate={{ opacity: 1, x: 0 }}
-                    transition={{ delay: 0.1 + i * 0.05 }}
                   >
                     {link.label}
-                  </motion.a>
+                  </a>
                 ))}
               </div>
 

@@ -1,31 +1,14 @@
 import React from 'react';
-import { motion } from 'framer-motion';
 import { ArrowRight } from 'lucide-react';
-
-const sectionVariants = {
-  hidden: { opacity: 0, y: 40 },
-  visible: {
-    opacity: 1,
-    y: 0,
-    transition: { duration: 0.7, ease: [0.16, 1, 0.3, 1] },
-  },
-};
 
 export default function CTABanner() {
   return (
     <section className="cta-banner">
       <div className="section__container">
-        <motion.div
-          className="cta-banner__inner"
-          variants={sectionVariants}
-          initial="hidden"
-          whileInView="visible"
-          viewport={{ once: true, margin: '-80px' }}
-        >
-          <h2 className="cta-banner__heading">Ready to Begin?</h2>
+        <div className="cta-banner__inner">
+          <h2 className="cta-banner__heading">Get Started with Produit Academy</h2>
           <p className="cta-banner__subtext">
-            Whether you're preparing for GATE, looking for live classes, or want
-            to join our team - there's a place for you at Produit Academy.
+            Enroll for structured 1:1 school tuition, begin GATE mock preparation, or apply to join our instructional faculty.
           </p>
           <div className="cta-banner__buttons">
             <a href="https://classes.produitacademy.com" className="btn btn--white btn--lg">
@@ -38,7 +21,7 @@ export default function CTABanner() {
               Apply for a role <ArrowRight size={16} />
             </a>
           </div>
-        </motion.div>
+        </div>
       </div>
     </section>
   );
