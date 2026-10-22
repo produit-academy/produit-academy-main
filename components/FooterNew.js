@@ -51,10 +51,10 @@ export default function FooterNew() {
             <h4 className="footer-new__heading">Support</h4>
             <ul className="footer-new__links">
               <li>
-                <a href="https://classes.produitacademy.com/privacy-policy">Privacy Policy</a>
+                <a href="/privacy-policy">Privacy Policy</a>
               </li>
               <li>
-                <a href="https://classes.produitacademy.com/terms-and-conditions">Terms & Conditions</a>
+                <a href="/terms-and-conditions">Terms & Conditions</a>
               </li>
             </ul>
           </div>

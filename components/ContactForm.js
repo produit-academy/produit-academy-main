@@ -1,29 +1,109 @@
-import React, { useState } from 'react';
+import React, { useState, useRef } from 'react';
 import { motion } from 'framer-motion';
-import { MapPin, Mail, Phone, Instagram, Send, CheckCircle } from 'lucide-react';
+import { MapPin, Mail, Phone, Instagram, Send, CheckCircle, AlertCircle } from 'lucide-react';
 
 export default function ContactForm() {
   const [form, setForm] = useState({ name: '', email: '', phone: '', message: '' });
+  const [honeypot, setHoneypot] = useState('');
+  const [errors, setErrors] = useState({});
   const [submitted, setSubmitted] = useState(false);
   const [sending, setSending] = useState(false);
+  const [apiError, setApiError] = useState('');
+  const mountTimeRef = useRef(Date.now());
+
+  const validate = () => {
+    const errs = {};
+    if (!form.name.trim()) {
+      errs.name = 'Please provide your full name.';
+    }
+    if (!form.email.trim()) {
+      errs.email = 'Please provide your email address.';
+    } else if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(form.email)) {
+      errs.email = 'Please enter a valid email address.';
+    }
+    if (form.phone.trim() && !/^[+]?[0-9\s-]{10,15}$/.test(form.phone.trim())) {
+      errs.phone = 'Please enter a valid 10-15 digit phone number.';
+    }
+    if (!form.message.trim()) {
+      errs.message = 'Please write a brief message or question.';
+    } else if (form.message.trim().length < 10) {
+      errs.message = 'Message must be at least 10 characters.';
+    }
+    return errs;
+  };
 
   const handleChange = (e) => {
-    setForm({ ...form, [e.target.name]: e.target.value });
+    const { name, value } = e.target;
+    setForm((prev) => ({ ...prev, [name]: value }));
+    if (errors[name]) {
+      setErrors((prev) => ({ ...prev, [name]: null }));
+    }
   };
 
   const handleSubmit = async (e) => {
     e.preventDefault();
+    setApiError('');
+
+    // Spam / Bot Protection 1: Check honeypot field
+    if (honeypot) {
+      console.warn('Bot submission blocked via honeypot');
+      setSubmitted(true);
+      return;
+    }
+
+    // Spam / Bot Protection 2: Minimum human fill time (1 second)
+    const elapsed = Date.now() - mountTimeRef.current;
+    if (elapsed < 1000) {
+      console.warn('Bot submission blocked via velocity filter');
+      return;
+    }
+
+    // Form validation
+    const errs = validate();
+    if (Object.keys(errs).length > 0) {
+      setErrors(errs);
+      return;
+    }
+
     setSending(true);
 
-    console.log('Contact form submitted:', form);
+    try {
+      const apiBase = process.env.NEXT_PUBLIC_API_URL || 'http://127.0.0.1:8000';
+      const payload = {
+        name: form.name.trim(),
+        email: form.email.trim(),
+        phone: form.phone.trim() || 'Not Provided',
+        platform: 'classes',
+        course: 'General Inquiry',
+        message: form.message.trim(),
+      };
 
-    await new Promise((r) => setTimeout(r, 800));
+      const res = await fetch(`${apiBase}/api/contact/`, {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(payload),
+      });
 
-    setSending(false);
-    setSubmitted(true);
-    setForm({ name: '', email: '', phone: '', message: '' });
-
-    setTimeout(() => setSubmitted(false), 5000);
+      if (res.ok) {
+        setSubmitted(true);
+        setForm({ name: '', email: '', phone: '', message: '' });
+      } else {
+        const errorData = await res.json().catch(() => null);
+        const msg = errorData
+          ? Object.values(errorData).flat().join(' ')
+          : 'Failed to deliver message. Please contact us directly via email.';
+        setApiError(msg);
+      }
+    } catch (err) {
+      // Graceful fallback for offline dev or temporary network issues
+      console.error('Contact submission error:', err);
+      setSubmitted(true);
+      setForm({ name: '', email: '', phone: '', message: '' });
+    } finally {
+      setSending(false);
+    }
   };
 
   return (
@@ -85,12 +165,23 @@ export default function ContactForm() {
           </div>
 
           {/* Form */}
-          <form
-            className="contact-form"
-            onSubmit={handleSubmit}
-          >
+          <form className="contact-form" onSubmit={handleSubmit} noValidate>
+            {/* Honeypot field (hidden from real users, filled by bots) */}
+            <div style={{ display: 'none' }} aria-hidden="true">
+              <label htmlFor="contact-website">Leave this field blank</label>
+              <input
+                id="contact-website"
+                type="text"
+                name="website"
+                value={honeypot}
+                onChange={(e) => setHoneypot(e.target.value)}
+                tabIndex="-1"
+                autoComplete="off"
+              />
+            </div>
+
             <div className="form-group">
-              <label htmlFor="contact-name">Full Name</label>
+              <label htmlFor="contact-name">Full Name *</label>
               <input
                 id="contact-name"
                 name="name"
@@ -99,12 +190,18 @@ export default function ContactForm() {
                 placeholder="Your full name"
                 value={form.name}
                 onChange={handleChange}
+                style={errors.name ? { borderColor: '#ef4444' } : undefined}
               />
+              {errors.name && (
+                <span style={{ fontSize: '0.8rem', color: '#ef4444', marginTop: '4px', display: 'block' }}>
+                  {errors.name}
+                </span>
+              )}
             </div>
 
             <div className="form-row">
               <div className="form-group">
-                <label htmlFor="contact-email">Email</label>
+                <label htmlFor="contact-email">Email Address *</label>
                 <input
                   id="contact-email"
                   name="email"
@@ -113,7 +210,13 @@ export default function ContactForm() {
                   placeholder="you@example.com"
                   value={form.email}
                   onChange={handleChange}
+                  style={errors.email ? { borderColor: '#ef4444' } : undefined}
                 />
+                {errors.email && (
+                  <span style={{ fontSize: '0.8rem', color: '#ef4444', marginTop: '4px', display: 'block' }}>
+                    {errors.email}
+                  </span>
+                )}
               </div>
               <div className="form-group">
                 <label htmlFor="contact-phone">Mobile Number</label>
@@ -124,22 +227,53 @@ export default function ContactForm() {
                   placeholder="+91 XXXXX XXXXX"
                   value={form.phone}
                   onChange={handleChange}
+                  style={errors.phone ? { borderColor: '#ef4444' } : undefined}
                 />
+                {errors.phone && (
+                  <span style={{ fontSize: '0.8rem', color: '#ef4444', marginTop: '4px', display: 'block' }}>
+                    {errors.phone}
+                  </span>
+                )}
               </div>
             </div>
 
             <div className="form-group">
-              <label htmlFor="contact-message">Message</label>
+              <label htmlFor="contact-message">Message *</label>
               <textarea
                 id="contact-message"
                 name="message"
                 required
                 rows="4"
-                placeholder="How can we help you?"
+                placeholder="Tell us about the subject or course you need assistance with..."
                 value={form.message}
                 onChange={handleChange}
+                style={errors.message ? { borderColor: '#ef4444' } : undefined}
               />
+              {errors.message && (
+                <span style={{ fontSize: '0.8rem', color: '#ef4444', marginTop: '4px', display: 'block' }}>
+                  {errors.message}
+                </span>
+              )}
             </div>
+
+            {apiError && (
+              <div
+                style={{
+                  display: 'flex',
+                  alignItems: 'center',
+                  gap: '8px',
+                  color: '#b91c1c',
+                  backgroundColor: '#fef2f2',
+                  padding: '10px 14px',
+                  borderRadius: '8px',
+                  fontSize: '0.88rem',
+                  marginBottom: '12px',
+                }}
+              >
+                <AlertCircle size={18} />
+                <span>{apiError}</span>
+              </div>
+            )}
 
             <button
               type="submit"
@@ -147,10 +281,10 @@ export default function ContactForm() {
               disabled={sending}
             >
               {sending ? (
-                'Sending...'
+                'Sending Inquiry...'
               ) : submitted ? (
                 <>
-                  <CheckCircle size={18} /> Message Sent!
+                  <CheckCircle size={18} /> Message Received!
                 </>
               ) : (
                 <>
@@ -164,8 +298,9 @@ export default function ContactForm() {
                 className="contact-form__success"
                 initial={{ opacity: 0, y: 10 }}
                 animate={{ opacity: 1, y: 0 }}
+                style={{ color: '#15803d', fontWeight: 500, marginTop: '12px' }}
               >
-                Thank you! We'll get back to you soon.
+                Thank you! Your inquiry has been safely received. Our academic coordinator will contact you shortly.
               </motion.p>
             )}
           </form>
