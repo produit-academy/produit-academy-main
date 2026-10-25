@@ -1,73 +1,70 @@
 import React from 'react';
-import { MonitorPlay, FileEdit, Camera } from 'lucide-react';
 import PlatformCard from './PlatformCard';
 
-const platforms = [
+const pathsData = [
   {
-    icon: <MonitorPlay size={26} />,
-    title: 'Produit Academy Classes',
-    tagline: 'Scheduled 1:1 live tuition and mentor guidance.',
+    number: '01',
+    title: 'Classes',
+    tagline: 'Learning That Adapts to You.',
     description:
-      'A live learning portal connecting students, teachers, and academic mentors. Attend scheduled 1:1 live classes, track attendance, and monitor syllabus coverage through an academic analytics dashboard.',
+      'Personalized live tuition for students in Classes 6-12, designed around individual learning needs and school curricula.',
     features: [
-      'Personal 1:1 live interactive classes',
-      'Performance analytics dashboard',
-      'Dedicated mentor oversight',
-      'Global syllabus support across curricula',
+      'Interactive 1-to-1 live classes',
+      'Dedicated mentor guidance',
+      'Attendance and syllabus tracking',
     ],
     link: 'https://classes.produitacademy.com',
-    linkLabel: 'Join a live class',
-    accentColor: '#33ae78', // green (brand)
+    btnLabel: 'Explore Classes',
   },
   {
-    icon: <FileEdit size={26} />,
-    title: 'Produit Academy GATE',
-    tagline: 'Structured exam preparation and mock assessments.',
+    number: '02',
+    title: 'GATE',
+    tagline: 'Practice with Purpose.',
     description:
-      'A dedicated mock test platform for GATE aspirants across Electrical, Mechanical, Civil, Computer Science, and Electronics & Communication engineering disciplines.',
+      'Prepare for GATE using customizable mock tests that help you evaluate your knowledge and find areas for improvement.',
     features: [
-      'Custom mock tests with flexible parameters',
-      'Authentic exam interface',
-      'Detailed topic-wise performance analytics',
-      'Previous Year Questions and study materials',
+      'Customizable mock tests',
+      'Real-exam-style interface',
+      'Topic-wise performance analytics',
     ],
     link: 'https://gate.produitacademy.com',
-    linkLabel: 'Start a mock test',
-    accentColor: '#3B82F6', // blue
+    btnLabel: 'Explore GATE',
   },
   {
-    icon: <Camera size={26} />,
-    title: 'Produit Academy Careers',
-    tagline: 'Faculty and institutional recruitment.',
+    number: '03',
+    title: 'Careers',
+    tagline: 'Make Your Skills Matter.',
     description:
-      'Join our academic faculty and operations team. We are hiring educators, mentors, content researchers, and media professionals to support expanding operations.',
+      'Bring your skills and ideas to a growing team working across education, content, and creative media.',
     features: [
-      'Subject Teachers & Academic Mentors',
-      'Content Researchers & Writers',
-      'Media Team & Video Production',
-      'Curriculum Development Specialists',
+      'Teaching and academic mentoring',
+      'Content research and writing',
+      'Media and video production',
     ],
     link: 'https://careers.produitacademy.com',
-    linkLabel: 'Apply for a role',
-    accentColor: '#F59E0B', // orange/amber
+    btnLabel: 'Explore Careers',
   },
 ];
 
 export default function PlatformsSection() {
   return (
-    <section id="platforms" className="section platforms-section">
-      <div className="section__container">
-        <div className="section__header">
-          <span className="section__label">Our Platforms</span>
-          <h2 className="section__heading">One Academy, Three Platforms</h2>
-          <p className="section__subheading">
-            Dedicated portals designed for students, competitive exam aspirants, and prospective faculty.
+    <section id="paths" className="paths-section">
+      <div className="section-container">
+        {/* Section Heading */}
+        <div className="paths-header">
+          <h2 className="paths-title">
+            One Academy, Three Paths to <span className="text-accent">Progress.</span>
+          </h2>
+          <p className="paths-subtitle">
+            Explore the path that matches your goals, whether you're building strong
+            academic foundations, preparing for GATE, or looking to grow with our team.
           </p>
         </div>
 
-        <div className="platforms-grid">
-          {platforms.map((p, i) => (
-            <PlatformCard key={p.title} {...p} index={i} />
+        {/* 3 Cards Grid */}
+        <div className="paths-grid">
+          {pathsData.map((item) => (
+            <PlatformCard key={item.number} {...item} />
           ))}
         </div>
       </div>

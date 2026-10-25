@@ -1,37 +1,43 @@
-import React from "react";
-import Image from 'next/image';
-import { useRouter } from 'next/router';
+import React from 'react';
+import Head from 'next/head';
+import Link from 'next/link';
+import { Home, MessageSquare, ArrowLeft } from 'lucide-react';
+import Navbar from '../components/Navbar';
+import FooterNew from '../components/FooterNew';
 
 export default function Custom404() {
-  const router = useRouter();
-
   return (
-    <div className="App" style={{ minHeight: '100vh', display: 'flex', flexDirection: 'column', justifyContent: 'center', alignItems: 'center', backgroundColor: '#f7f8fa', color: '#333', fontFamily: 'sans-serif' }}>
+    <div className="secondary-page-wrapper">
+      <Head>
+        <title>404 - Page Not Found | Produit Academy</title>
+        <meta name="description" content="The page you are looking for does not exist on Produit Academy." />
+      </Head>
 
-      <div style={{ textAlign: 'center', maxWidth: '600px', padding: '20px' }}>
-        <Image
-          src="/work-in-progress.png"
-          alt="Page Not Found"
-          width={500}
-          height={400}
-          style={{ maxWidth: '100%', height: 'auto', marginBottom: '30px' }}
-        />
+      <Navbar />
 
-        <h1 style={{ fontFamily: 'var(--font-heading)', fontSize: '2.4rem', marginBottom: '0.75rem', color: 'var(--text-primary)', fontWeight: 700 }}>Page Not Found</h1>
-        <p style={{ fontSize: '1.05rem', color: 'var(--text-secondary)', marginBottom: '2rem', lineHeight: 1.6 }}>
-          The requested page could not be located. It may have been moved or is currently unavailable.
-        </p>
+      <main className="secondary-main" style={{ display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
+        <div className="secondary-container">
+          <div className="error-page-card">
+            <div className="error-badge-404">404</div>
+            <h1 className="error-title">Page Not Found.</h1>
+            <p className="error-desc">
+              The page you are looking for might have been moved, renamed, or is temporarily unavailable. Let&apos;s get you back on track.
+            </p>
+            <div className="error-actions">
+              <Link href="/" className="btn-hero-primary" style={{ textDecoration: 'none' }}>
+                <Home size={18} />
+                <span>Return to Homepage</span>
+              </Link>
+              <Link href="/#contact" className="btn-hero-secondary" style={{ textDecoration: 'none' }}>
+                <MessageSquare size={18} />
+                <span>Contact Academic Team</span>
+              </Link>
+            </div>
+          </div>
+        </div>
+      </main>
 
-        <button
-          onClick={() => router.push('/')}
-          className="btn btn--primary btn--lg"
-          style={{
-            cursor: 'pointer',
-          }}
-        >
-          Return to Homepage
-        </button>
-      </div>
+      <FooterNew />
     </div>
   );
 }

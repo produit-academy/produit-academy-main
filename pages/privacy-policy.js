@@ -5,129 +5,106 @@ import FooterNew from '../components/FooterNew';
 
 export default function PrivacyPolicy() {
   return (
-    <>
+    <div className="secondary-page-wrapper">
       <Head>
-        <title>Privacy Policy - Produit Academy</title>
+        <title>Privacy Policy | Produit Academy</title>
         <meta
           name="description"
           content="Privacy Policy of Produit Academy - Learn how we collect, protect, and use your personal data across our educational platforms."
         />
-        <meta name="viewport" content="width=device-width, initial-scale=1" />
-        <link rel="icon" href="/favicon.ico" />
+        <link rel="canonical" href="https://produitacademy.com/privacy-policy" />
+        <meta property="og:title" content="Privacy Policy - Produit Academy" />
+        <meta
+          property="og:description"
+          content="Privacy Policy of Produit Academy - Learn how we collect, protect, and use your personal data across our educational platforms."
+        />
       </Head>
 
       <Navbar />
 
-      <main style={{ minHeight: '80vh', backgroundColor: 'var(--background-light)', paddingTop: '100px', paddingBottom: '60px' }}>
-        <div style={{ maxWidth: '900px', margin: '0 auto', padding: '0 20px' }}>
-          <div
-            style={{
-              backgroundColor: '#ffffff',
-              borderRadius: '16px',
-              padding: '40px',
-              border: '1px solid #e2e8f0',
-              boxShadow: '0 4px 20px rgba(0, 0, 0, 0.04)',
-            }}
-          >
-            <span
-              style={{
-                display: 'inline-block',
-                fontSize: '0.82rem',
-                fontWeight: 600,
-                textTransform: 'uppercase',
-                color: 'var(--accent-green)',
-                letterSpacing: '1px',
-                marginBottom: '8px',
-              }}
-            >
-              Legal & Compliance
-            </span>
-            <h1 style={{ fontSize: '2.4rem', fontWeight: 700, color: '#0f172a', marginBottom: '16px', lineHeight: 1.2 }}>
-              Privacy Policy
-            </h1>
-            <p style={{ color: '#64748b', fontSize: '0.95rem', marginBottom: '32px' }}>
-              Last updated: October 2026 | Effective for all Produit Academy platforms
-            </p>
+      <main className="secondary-main">
+        <div className="secondary-container">
+          <div className="secondary-card">
+            <div className="secondary-header">
+              <span className="secondary-badge">✦ LEGAL & COMPLIANCE</span>
+              <h1 className="secondary-title">Privacy Policy</h1>
+              <p className="secondary-meta">
+                Last updated: October 2026 | Effective for all Produit Academy platforms
+              </p>
+            </div>
 
-            <hr style={{ border: 'none', borderTop: '1px solid #f1f5f9', marginBottom: '32px' }} />
+            <hr className="secondary-divider" />
 
-            <section style={{ marginBottom: '28px' }}>
-              <h2 style={{ fontSize: '1.3rem', fontWeight: 600, color: '#1e293b', marginBottom: '10px' }}>
-                1. Introduction
-              </h2>
-              <p style={{ color: '#475569', lineHeight: 1.7, marginBottom: '14px' }}>
-                Produit Academy (&quot;we&quot;, &quot;our&quot;, or &quot;us&quot;), based in Kollam, Kerala, is committed to safeguarding the privacy and personal data of our students, parents, tutors, and visitors. This Privacy Policy outlines how we collect, store, process, and protect your information when you visit or interact with our platforms (Main Website, Classes Portal, GATE Portal, and Careers Portal).
+            <section className="legal-section">
+              <h2 className="legal-section-title">1. Introduction & Scope</h2>
+              <p className="legal-text">
+                Produit Academy (&quot;we&quot;, &quot;our&quot;, or &quot;us&quot;), headquartered in Kollam, Kerala, is firmly committed to protecting the privacy and personal data of our students, parents, tutors, and visitors. This Privacy Policy outlines our transparent practices regarding the collection, handling, and security of information across our platforms (Main Website, Classes Portal, GATE Portal, and Careers Portal).
               </p>
             </section>
 
-            <section style={{ marginBottom: '28px' }}>
-              <h2 style={{ fontSize: '1.3rem', fontWeight: 600, color: '#1e293b', marginBottom: '10px' }}>
-                2. Information We Collect
-              </h2>
-              <p style={{ color: '#475569', lineHeight: 1.7, marginBottom: '10px' }}>
-                We collect personal information that you voluntarily provide to us when you:
+            <section className="legal-section">
+              <h2 className="legal-section-title">2. Information We Collect</h2>
+              <p className="legal-text">
+                We collect personal information necessary to deliver high-quality, customized educational services:
               </p>
-              <ul style={{ paddingLeft: '24px', color: '#475569', lineHeight: 1.7, marginBottom: '14px' }}>
-                <li>Register for 1:1 online classes or competitive exam assessments.</li>
-                <li>Submit an inquiry via our contact form or live support channels.</li>
-                <li>Apply for career and faculty positions.</li>
-                <li>Process course fee payments through our PCI-DSS compliant payment gateways (e.g., Razorpay).</li>
-              </ul>
-              <p style={{ color: '#475569', lineHeight: 1.7 }}>
-                <strong>Technical Information:</strong> We may automatically log device IP addresses, browser types, session durations, and anonymized analytics to maintain platform stability and detect fraudulent activity.
-              </p>
-            </section>
-
-            <section style={{ marginBottom: '28px' }}>
-              <h2 style={{ fontSize: '1.3rem', fontWeight: 600, color: '#1e293b', marginBottom: '10px' }}>
-                3. How We Use Your Data
-              </h2>
-              <ul style={{ paddingLeft: '24px', color: '#475569', lineHeight: 1.7, marginBottom: '14px' }}>
-                <li>To coordinate 1:1 live tuition schedules and academic mentorship.</li>
-                <li>To communicate session reminders, academic reports, and transaction receipts.</li>
-                <li>To evaluate student learning curves, test performances, and syllabus coverage.</li>
-                <li>To review employment applications and onboard educators.</li>
-                <li>To comply with statutory tax and regulatory legal requirements in India.</li>
+              <ul className="legal-list">
+                <li><strong>Identity & Contact Information:</strong> Name, parent/guardian contact, email address, mobile number, and grade level.</li>
+                <li><strong>Academic Information:</strong> School curriculum (CBSE/ICSE/State), academic performance targets, and diagnostic test responses.</li>
+                <li><strong>Billing & Transaction Details:</strong> Payment confirmation identifiers processed through secure, RBI-compliant payment gateways. We never store credit/debit card numbers directly.</li>
+                <li><strong>Technical Usage Data:</strong> IP address, device telemetry, browser type, and interaction timestamps to optimize platform stability and speed.</li>
               </ul>
             </section>
 
-            <section style={{ marginBottom: '28px' }}>
-              <h2 style={{ fontSize: '1.3rem', fontWeight: 600, color: '#1e293b', marginBottom: '10px' }}>
-                4. Data Security & Storage
-              </h2>
-              <p style={{ color: '#475569', lineHeight: 1.7, marginBottom: '14px' }}>
-                We implement strict security measures, including HTTPS encryption in transit, encrypted storage for authentication tokens, and strict role-based access control (RBAC). We never sell or lease your personal information to third-party advertisers.
+            <section className="legal-section">
+              <h2 className="legal-section-title">3. How We Use Your Information</h2>
+              <p className="legal-text">
+                We use collected information solely for legitimate academic and administrative purposes:
+              </p>
+              <ul className="legal-list">
+                <li>Scheduling, coordinating, and conducting 1:1 live interactive tutoring sessions.</li>
+                <li>Generating individualized student performance analytics and parent reports.</li>
+                <li>Facilitating secure authentication and personalized dashboard access.</li>
+                <li>Delivering timely notifications regarding upcoming classes, test schedules, and academic milestones.</li>
+              </ul>
+            </section>
+
+            <section className="legal-section">
+              <h2 className="legal-section-title">4. Data Security & Storage</h2>
+              <p className="legal-text">
+                We employ industry-standard encryption protocols (TLS/SSL in transit and AES encryption at rest) to protect your sensitive data against unauthorized access, alteration, or disclosure. Access to student profiles is strictly limited to authorized coordinators and assigned educators.
               </p>
             </section>
 
-            <section style={{ marginBottom: '28px' }}>
-              <h2 style={{ fontSize: '1.3rem', fontWeight: 600, color: '#1e293b', marginBottom: '10px' }}>
-                5. Your Privacy Rights
-              </h2>
-              <p style={{ color: '#475569', lineHeight: 1.7, marginBottom: '14px' }}>
-                You have the right to request access to the personal data we hold about you, request corrections to inaccurate records, or request account deactivation. To exercise these rights, please email us directly.
+            <section className="legal-section">
+              <h2 className="legal-section-title">5. Data Sharing & Third Parties</h2>
+              <p className="legal-text">
+                Produit Academy does <strong>not sell, rent, or trade</strong> your personal information to third-party advertisers. We disclose data only to trusted service providers who assist us under strict non-disclosure obligations (e.g., cloud hosting infrastructure, SMS verification providers, and payment processors).
               </p>
             </section>
 
-            <section>
-              <h2 style={{ fontSize: '1.3rem', fontWeight: 600, color: '#1e293b', marginBottom: '10px' }}>
-                6. Contact Our Privacy Team
-              </h2>
-              <p style={{ color: '#475569', lineHeight: 1.7, marginBottom: '8px' }}>
-                If you have questions or concerns regarding our privacy practices:
+            <section className="legal-section">
+              <h2 className="legal-section-title">6. Student & Parental Rights</h2>
+              <p className="legal-text">
+                Parents and students have full control over their personal information. You have the right to inspect, correct, or request deletion of personal records from our databases at any time by contacting our compliance officer.
               </p>
-              <p style={{ color: '#475569', lineHeight: 1.7 }}>
-                <strong>Produit Academy</strong><br />
-                Kollam, Kerala, India<br />
-                Email: <a href="mailto:produitacademy@gmail.com" style={{ color: 'var(--accent-green)', textDecoration: 'underline' }}>produitacademy@gmail.com</a><br />
-                Phone: <a href="tel:+918139805996" style={{ color: 'var(--accent-green)', textDecoration: 'underline' }}>+91 8139 805 996</a>
+            </section>
+
+            <section className="legal-section" style={{ marginBottom: 0 }}>
+              <h2 className="legal-section-title">7. Contact the Privacy Team</h2>
+              <p className="legal-text">
+                If you have questions, feedback, or data privacy requests, our coordinators are here to assist:
               </p>
+              <ul className="legal-list">
+                <li><strong>Email:</strong> produitacademy@gmail.com</li>
+                <li><strong>Phone:</strong> +91 8139 805 996</li>
+                <li><strong>Location:</strong> Kollam, Kerala, India</li>
+              </ul>
             </section>
           </div>
         </div>
       </main>
 
       <FooterNew />
-    </>
+    </div>
   );
 }

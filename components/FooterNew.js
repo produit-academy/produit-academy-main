@@ -1,92 +1,127 @@
 import React from 'react';
-import { Instagram, Mail, Phone } from 'lucide-react';
+import Link from 'next/link';
+import { Instagram, Facebook, Linkedin } from 'lucide-react';
 
 export default function FooterNew() {
   return (
-    <footer className="footer-new">
-      <div className="footer-new__inner">
-        <div className="footer-new__grid">
-          {/* Column 1: Brand */}
-          <div className="footer-new__col footer-new__brand-col">
-            <div className="footer-new__brand">
-              <img src="/logo.png" alt="Produit Academy" className="footer-new__logo" />
-              <span className="footer-new__wordmark">Produit Academy</span>
+    <footer className="footer-dark">
+      <div className="section-container">
+        {/* Top Main Footer Grid */}
+        <div className="footer-grid">
+          {/* Brand Column */}
+          <div className="footer-brand-col">
+            <Link href="#home" className="footer-brand-logo">
+              <img src="/logo.png" alt="Produit Academy" className="footer-logo-img" />
+              <div className="footer-brand-text">
+                <span className="footer-wordmark">Produit Academy</span>
+                <span className="footer-motto">SEEK KNOWLEDGE ACTIVELY.</span>
+              </div>
+            </Link>
+
+            {/* Social Circle Buttons */}
+            <div className="footer-social-row">
+              <a
+                href="https://www.instagram.com/produit.academy/"
+                target="_blank"
+                rel="noreferrer"
+                className="footer-social-circle"
+                aria-label="Instagram"
+              >
+                <Instagram size={18} />
+              </a>
+              <a
+                href="https://facebook.com/produitacademy"
+                target="_blank"
+                rel="noreferrer"
+                className="footer-social-circle"
+                aria-label="Facebook"
+              >
+                <Facebook size={18} />
+              </a>
+              <a
+                href="https://linkedin.com/company/produit-academy"
+                target="_blank"
+                rel="noreferrer"
+                className="footer-social-circle"
+                aria-label="LinkedIn"
+              >
+                <Linkedin size={18} />
+              </a>
             </div>
-            <p className="footer-new__tagline">
-              1:1 online tuition for grades 6 to 12. Based in Kollam, Kerala.
-            </p>
           </div>
 
-          {/* Column 2: Our Platforms */}
-          <div className="footer-new__col">
-            <h4 className="footer-new__heading">Our Platforms</h4>
-            <ul className="footer-new__links">
-              <li>
-                <a href="https://gate.produitacademy.com">GATE Portal</a>
-              </li>
-              <li>
-                <a href="https://classes.produitacademy.com">Classes Portal</a>
-              </li>
-              <li>
-                <a href="https://careers.produitacademy.com">Careers</a>
-              </li>
-            </ul>
-          </div>
+          {/* Links Columns */}
+          <div className="footer-links-group">
+            {/* Column 1: Our Programs */}
+            <div className="footer-col">
+              <h4 className="footer-col-title">OUR PROGRAMS</h4>
+              <ul className="footer-col-list">
+                <li>
+                  <a href="https://classes.produitacademy.com" target="_blank" rel="noreferrer">
+                    Classes 6-12
+                  </a>
+                </li>
+                <li>
+                  <a href="https://gate.produitacademy.com" target="_blank" rel="noreferrer">
+                    GATE Preparation
+                  </a>
+                </li>
+                <li>
+                  <a href="https://careers.produitacademy.com" target="_blank" rel="noreferrer">
+                    Career Opportunities
+                  </a>
+                </li>
+              </ul>
+            </div>
 
-          {/* Column 3: Company */}
-          <div className="footer-new__col">
-            <h4 className="footer-new__heading">Company</h4>
-            <ul className="footer-new__links">
-              <li>
-                <a href="#about">About Us</a>
-              </li>
-              <li>
-                <a href="#contact">Contact Us</a>
-              </li>
-            </ul>
-          </div>
+            {/* Column 2: Company */}
+            <div className="footer-col">
+              <h4 className="footer-col-title">COMPANY</h4>
+              <ul className="footer-col-list">
+                <li>
+                  <a href="#about">About Us</a>
+                </li>
+                <li>
+                  <a href="#why-choose">Why Produit Academy</a>
+                </li>
+                <li>
+                  <a href="https://careers.produitacademy.com" target="_blank" rel="noreferrer">
+                    Join Our Team
+                  </a>
+                </li>
+              </ul>
+            </div>
 
-          {/* Column 4: Support */}
-          <div className="footer-new__col">
-            <h4 className="footer-new__heading">Support</h4>
-            <ul className="footer-new__links">
-              <li>
-                <a href="/privacy-policy">Privacy Policy</a>
-              </li>
-              <li>
-                <a href="/terms-and-conditions">Terms & Conditions</a>
-              </li>
-            </ul>
-          </div>
-
-          {/* Column 5: Get in Touch */}
-          <div className="footer-new__col">
-            <h4 className="footer-new__heading">Get in Touch</h4>
-            <ul className="footer-new__links footer-new__contact-links">
-              <li>
-                <Mail size={14} />
-                <a href="mailto:produitacademy@gmail.com">produitacademy@gmail.com</a>
-              </li>
-              <li>
-                <Phone size={14} />
-                <a href="tel:+918139805996">+91 8139 805 996</a>
-              </li>
-              <li>
-                <Instagram size={14} />
-                <a
-                  href="https://www.instagram.com/produit.academy/"
-                  target="_blank"
-                  rel="noreferrer"
-                >
-                  @produit.academy
-                </a>
-              </li>
-            </ul>
+            {/* Column 3: Get In Touch */}
+            <div className="footer-col">
+              <h4 className="footer-col-title">GET IN TOUCH</h4>
+              <ul className="footer-col-list">
+                <li>
+                  <a href="mailto:produitacademy@gmail.com">produitacademy@gmail.com</a>
+                </li>
+                <li>
+                  <a href="tel:+918139805996">+91 8139 805 996</a>
+                </li>
+              </ul>
+            </div>
           </div>
         </div>
+      </div>
 
-        <div className="footer-new__bottom">
-          <p>© 2026 Produit Academy. All rights reserved.</p>
+      {/* Bottom Bar: Full-width container sticking to the bottom with NO GAP */}
+      <div className="footer-bottom-bar">
+        <div className="section-container footer-bottom-inner">
+          <p className="footer-copyright">
+            Copyright © 2026 Produit Academy. All rights reserved.
+          </p>
+          <div className="footer-legal-links">
+            <Link href="/privacy-policy" className="footer-legal-link">
+              Privacy Policy
+            </Link>
+            <Link href="/terms-and-conditions" className="footer-legal-link">
+              Terms of Service
+            </Link>
+          </div>
         </div>
       </div>
     </footer>

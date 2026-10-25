@@ -5,112 +5,113 @@ import FooterNew from '../components/FooterNew';
 
 export default function TermsAndConditions() {
   return (
-    <>
+    <div className="secondary-page-wrapper">
       <Head>
-        <title>Terms & Conditions - Produit Academy</title>
+        <title>Terms & Conditions | Produit Academy</title>
         <meta
           name="description"
           content="Terms and Conditions of Produit Academy - Guidelines, student agreements, and service policies for our learning platforms."
         />
-        <meta name="viewport" content="width=device-width, initial-scale=1" />
-        <link rel="icon" href="/favicon.ico" />
+        <link rel="canonical" href="https://produitacademy.com/terms-and-conditions" />
+        <meta property="og:title" content="Terms & Conditions - Produit Academy" />
+        <meta
+          property="og:description"
+          content="Terms and Conditions of Produit Academy - Guidelines, student agreements, and service policies for our learning platforms."
+        />
       </Head>
 
       <Navbar />
 
-      <main style={{ minHeight: '80vh', backgroundColor: 'var(--background-light)', paddingTop: '100px', paddingBottom: '60px' }}>
-        <div style={{ maxWidth: '900px', margin: '0 auto', padding: '0 20px' }}>
-          <div
-            style={{
-              backgroundColor: '#ffffff',
-              borderRadius: '16px',
-              padding: '40px',
-              border: '1px solid #e2e8f0',
-              boxShadow: '0 4px 20px rgba(0, 0, 0, 0.04)',
-            }}
-          >
-            <span
-              style={{
-                display: 'inline-block',
-                fontSize: '0.82rem',
-                fontWeight: 600,
-                textTransform: 'uppercase',
-                color: 'var(--accent-green)',
-                letterSpacing: '1px',
-                marginBottom: '8px',
-              }}
-            >
-              Legal & Compliance
-            </span>
-            <h1 style={{ fontSize: '2.4rem', fontWeight: 700, color: '#0f172a', marginBottom: '16px', lineHeight: 1.2 }}>
-              Terms & Conditions
-            </h1>
-            <p style={{ color: '#64748b', fontSize: '0.95rem', marginBottom: '32px' }}>
-              Last updated: October 2026 | Effective for all Produit Academy services
-            </p>
+      <main className="secondary-main">
+        <div className="secondary-container">
+          <div className="secondary-card">
+            <div className="secondary-header">
+              <span className="secondary-badge">✦ LEGAL & COMPLIANCE</span>
+              <h1 className="secondary-title">Terms & Conditions</h1>
+              <p className="secondary-meta">
+                Last updated: October 2026 | Applicable across all Produit Academy platforms
+              </p>
+            </div>
 
-            <hr style={{ border: 'none', borderTop: '1px solid #f1f5f9', marginBottom: '32px' }} />
+            <hr className="secondary-divider" />
 
-            <section style={{ marginBottom: '28px' }}>
-              <h2 style={{ fontSize: '1.3rem', fontWeight: 600, color: '#1e293b', marginBottom: '10px' }}>
-                1. Acceptance of Terms
-              </h2>
-              <p style={{ color: '#475569', lineHeight: 1.7, marginBottom: '14px' }}>
-                By accessing, browsing, or enrolling in any service provided by Produit Academy (including Produit Classes, Produit GATE, and Produit Careers), you agree to comply with and be bound by these Terms and Conditions. If you do not agree to these terms, you must refrain from using our platforms.
+            <section className="legal-section">
+              <h2 className="legal-section-title">1. Acceptance of Terms</h2>
+              <p className="legal-text">
+                By accessing, browsing, or enrolling in any service provided by Produit Academy (including Produit Classes, Produit GATE, and Produit Careers), you agree to comply with and be bound by these Terms and Conditions. If you do not agree with any part of these terms, you must refrain from accessing our platforms.
               </p>
             </section>
 
-            <section style={{ marginBottom: '28px' }}>
-              <h2 style={{ fontSize: '1.3rem', fontWeight: 600, color: '#1e293b', marginBottom: '10px' }}>
-                2. Educational Services & 1:1 Live Classes
-              </h2>
-              <ul style={{ paddingLeft: '24px', color: '#475569', lineHeight: 1.7, marginBottom: '14px' }}>
-                <li>Live sessions are scheduled collaboratively between students, parents, and designated tutors.</li>
-                <li>Students must maintain mutual respect, professional decorum, and punctual attendance during all live calls.</li>
-                <li>Session rescheduling must be requested at least 12 hours prior to the scheduled start time to allow faculty adjustment.</li>
+            <section className="legal-section">
+              <h2 className="legal-section-title">2. Educational Platforms & Services</h2>
+              <p className="legal-text">
+                Produit Academy provides live 1:1 online tutoring, GATE coaching mock test suites, personalized academic mentoring, and career recruitment opportunities. We continuously enhance our learning systems and reserve the right to modify, suspend, or update curriculum materials or platform features with reasonable notice.
+              </p>
+            </section>
+
+            <section className="legal-section">
+              <h2 className="legal-section-title">3. User Accounts & Security</h2>
+              <p className="legal-text">
+                When creating an account on any Produit Academy portal (Student, Teacher, Staff, or Super Admin), you must provide accurate, current, and complete registration details. You are solely responsible for maintaining the confidentiality of your login credentials and for all activities conducted under your authenticated session.
+              </p>
+            </section>
+
+            <section className="legal-section">
+              <h2 className="legal-section-title">4. Code of Conduct & Academic Integrity</h2>
+              <p className="legal-text">
+                Students, educators, and staff are expected to maintain the highest standards of mutual respect, punctuality, and academic integrity during all live classroom sessions and discussions:
+              </p>
+              <ul className="legal-list">
+                <li>No recording, re-broadcasting, or unauthorized redistribution of live 1:1 sessions without written consent.</li>
+                <li>Respectful communication with mentors, coordinators, and fellow students at all times.</li>
+                <li>Strict prohibition of harassment, discrimination, or abusive conduct on our portals.</li>
               </ul>
             </section>
 
-            <section style={{ marginBottom: '28px' }}>
-              <h2 style={{ fontSize: '1.3rem', fontWeight: 600, color: '#1e293b', marginBottom: '10px' }}>
-                3. Intellectual Property
-              </h2>
-              <p style={{ color: '#475569', lineHeight: 1.7, marginBottom: '14px' }}>
-                All course curriculums, GATE mock test questions, proprietary notes, digital recordings, trademarks, and visual designs are the exclusive intellectual property of Produit Academy. You may not record, re-distribute, resell, or publicly display instructional materials without prior written consent.
+            <section className="legal-section">
+              <h2 className="legal-section-title">5. Intellectual Property Rights</h2>
+              <p className="legal-text">
+                All proprietary content - including course curricula, study notes, practice problem sets, test analytics, logos, trademarks, and user interfaces - is the exclusive intellectual property of Produit Academy. No materials may be copied, reproduced, or commercially distributed without explicit authorization.
               </p>
             </section>
 
-            <section style={{ marginBottom: '28px' }}>
-              <h2 style={{ fontSize: '1.3rem', fontWeight: 600, color: '#1e293b', marginBottom: '10px' }}>
-                4. Fees, Payments & Refunds
-              </h2>
-              <p style={{ color: '#475569', lineHeight: 1.7, marginBottom: '14px' }}>
-                Tuition fees and assessment subscriptions are clearly displayed before purchase. Payments are processed securely via encrypted payment gateways. Refund requests for live classes are governed strictly under our official Refund Policy published on our Classes portal.
+            <section className="legal-section">
+              <h2 className="legal-section-title">6. Payment Terms & Refund Policy</h2>
+              <p className="legal-text">
+                Tuition fees and subscription packages for courses and test series are billed according to published rates. Refund requests for live tuition packages are processed in accordance with our transparent refund policy, prorated based on unconsumed class sessions following formal withdrawal.
               </p>
             </section>
 
-            <section style={{ marginBottom: '28px' }}>
-              <h2 style={{ fontSize: '1.3rem', fontWeight: 600, color: '#1e293b', marginBottom: '10px' }}>
-                5. Limitation of Liability
-              </h2>
-              <p style={{ color: '#475569', lineHeight: 1.7, marginBottom: '14px' }}>
-                Produit Academy provides tutoring, mentorship, and exam preparation with the highest academic standards. However, ultimate exam scores, rank qualifications, and university admissions remain dependent on individual student diligence and examination boards.
+            <section className="legal-section">
+              <h2 className="legal-section-title">7. Limitation of Liability</h2>
+              <p className="legal-text">
+                While Produit Academy employs rigorous pedagogical standards and vetted mentors, we cannot guarantee specific exam ranks or admissions outcomes. In no event shall Produit Academy be liable for indirect, incidental, or consequential damages resulting from technical interruptions or third-party service downtime.
               </p>
             </section>
 
-            <section>
-              <h2 style={{ fontSize: '1.3rem', fontWeight: 600, color: '#1e293b', marginBottom: '10px' }}>
-                6. Governing Law & Dispute Resolution
-              </h2>
-              <p style={{ color: '#475569', lineHeight: 1.7, marginBottom: '14px' }}>
-                These Terms shall be governed by and construed in accordance with the laws of India. Any disputes arising in connection with these Terms shall be subject to the exclusive jurisdiction of the courts located in Kollam, Kerala.
+            <section className="legal-section">
+              <h2 className="legal-section-title">8. Governing Law & Jurisdiction</h2>
+              <p className="legal-text">
+                These Terms and Conditions shall be governed by and construed in accordance with the laws of India. Any disputes arising out of or in connection with these terms shall be subject to the exclusive jurisdiction of the competent courts in Kollam, Kerala.
               </p>
+            </section>
+
+            <section className="legal-section" style={{ marginBottom: 0 }}>
+              <h2 className="legal-section-title">9. Contact & Inquiries</h2>
+              <p className="legal-text">
+                For questions regarding our terms, agreements, or platform guidelines, please reach out directly:
+              </p>
+              <ul className="legal-list">
+                <li><strong>Email:</strong> produitacademy@gmail.com</li>
+                <li><strong>Phone:</strong> +91 8139 805 996</li>
+                <li><strong>Headquarters:</strong> Kollam, Kerala, India</li>
+              </ul>
             </section>
           </div>
         </div>
       </main>
 
       <FooterNew />
-    </>
+    </div>
   );
 }

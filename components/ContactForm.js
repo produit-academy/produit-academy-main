@@ -1,10 +1,14 @@
 import React, { useState, useRef } from 'react';
-import { motion } from 'framer-motion';
-import { MapPin, Mail, Phone, Instagram, Send, CheckCircle, AlertCircle } from 'lucide-react';
+import { Mail, Phone, Instagram, Facebook, Linkedin, Send, CheckCircle, AlertCircle } from 'lucide-react';
 
 export default function ContactForm() {
-  const [form, setForm] = useState({ name: '', email: '', phone: '', message: '' });
-  const [honeypot, setHoneypot] = useState('');
+  const [form, setForm] = useState({
+    name: '',
+    email: '',
+    phone: '',
+    interest: 'Classes 6-12 Tuition',
+    message: '',
+  });
   const [errors, setErrors] = useState({});
   const [submitted, setSubmitted] = useState(false);
   const [sending, setSending] = useState(false);
@@ -14,7 +18,7 @@ export default function ContactForm() {
   const validate = () => {
     const errs = {};
     if (!form.name.trim()) {
-      errs.name = 'Please provide your full name.';
+      errs.name = 'Please provide your name.';
     }
     if (!form.email.trim()) {
       errs.email = 'Please provide your email address.';
@@ -22,12 +26,10 @@ export default function ContactForm() {
       errs.email = 'Please enter a valid email address.';
     }
     if (form.phone.trim() && !/^[+]?[0-9\s-]{10,15}$/.test(form.phone.trim())) {
-      errs.phone = 'Please enter a valid 10-15 digit phone number.';
+      errs.phone = 'Please enter a valid phone number.';
     }
     if (!form.message.trim()) {
-      errs.message = 'Please write a brief message or question.';
-    } else if (form.message.trim().length < 10) {
-      errs.message = 'Message must be at least 10 characters.';
+      errs.message = 'Please enter your message.';
     }
     return errs;
   };
@@ -44,21 +46,11 @@ export default function ContactForm() {
     e.preventDefault();
     setApiError('');
 
-    // Spam / Bot Protection 1: Check honeypot field
-    if (honeypot) {
-      console.warn('Bot submission blocked via honeypot');
-      setSubmitted(true);
+    // Minimum human fill time protection
+    if (Date.now() - mountTimeRef.current < 800) {
       return;
     }
 
-    // Spam / Bot Protection 2: Minimum human fill time (1 second)
-    const elapsed = Date.now() - mountTimeRef.current;
-    if (elapsed < 1000) {
-      console.warn('Bot submission blocked via velocity filter');
-      return;
-    }
-
-    // Form validation
     const errs = validate();
     if (Object.keys(errs).length > 0) {
       setErrors(errs);
@@ -73,8 +65,8 @@ export default function ContactForm() {
         name: form.name.trim(),
         email: form.email.trim(),
         phone: form.phone.trim() || 'Not Provided',
-        platform: 'classes',
-        course: 'General Inquiry',
+        platform: form.interest.toLowerCase().includes('gate') ? 'gate' : form.interest.toLowerCase().includes('career') ? 'careers' : 'classes',
+        course: form.interest,
         message: form.message.trim(),
       };
 
@@ -88,7 +80,7 @@ export default function ContactForm() {
 
       if (res.ok) {
         setSubmitted(true);
-        setForm({ name: '', email: '', phone: '', message: '' });
+        setForm({ name: '', email: '', phone: '', interest: 'Classes 6-12 Tuition', message: '' });
       } else {
         const errorData = await res.json().catch(() => null);
         const msg = errorData
@@ -96,214 +88,199 @@ export default function ContactForm() {
           : 'Failed to deliver message. Please contact us directly via email.';
         setApiError(msg);
       }
-    } catch (err) {
-      // Graceful fallback for offline dev or temporary network issues
-      console.error('Contact submission error:', err);
+    } catch {
+      // Graceful fallback for offline dev
       setSubmitted(true);
-      setForm({ name: '', email: '', phone: '', message: '' });
+      setForm({ name: '', email: '', phone: '', interest: 'Classes 6-12 Tuition', message: '' });
     } finally {
       setSending(false);
     }
   };
 
   return (
-    <section id="contact" className="section contact-section">
-      <div className="section__container">
-        <div className="section__header">
-          <span className="section__label">Inquiries</span>
-          <h2 className="section__heading">Get in Touch</h2>
-        </div>
-
+    <section id="contact" className="contact-section">
+      <div className="section-container">
         <div className="contact-grid">
-          {/* Contact Info */}
+          {/* Left Column: Contact Details & Socials */}
           <div className="contact-info">
-            <div className="contact-info__item">
-              <div className="contact-info__icon">
-                <MapPin size={18} />
-              </div>
-              <div>
-                <h4>Address</h4>
-                <p>Produit Academy, Kollam, Kerala, India</p>
-              </div>
+            <span className="contact-tag">Get in touch with us</span>
+            <h2 className="contact-heading">
+              We’d Love to<br />Hear From You.
+            </h2>
+            <p className="contact-desc">
+              Have a question, an idea, or an enquiry?<br />
+              Reach out to us and let’s connect.
+            </p>
+
+            <div className="contact-links">
+              <a href="mailto:produitacademy@gmail.com" className="contact-link-item">
+                <div className="contact-link-icon-circle">
+                  <Mail size={20} className="text-accent" />
+                </div>
+                <span>produitacademy@gmail.com</span>
+              </a>
+
+              <a href="tel:+918139805996" className="contact-link-item">
+                <div className="contact-link-icon-circle">
+                  <Phone size={20} className="text-accent" />
+                </div>
+                <span>+91 8139 805 996</span>
+              </a>
             </div>
 
-            <div className="contact-info__item">
-              <div className="contact-info__icon">
-                <Mail size={18} />
-              </div>
-              <div>
-                <h4>Email</h4>
-                <a href="mailto:produitacademy@gmail.com">produitacademy@gmail.com</a>
-              </div>
-            </div>
-
-            <div className="contact-info__item">
-              <div className="contact-info__icon">
-                <Phone size={18} />
-              </div>
-              <div>
-                <h4>Phone</h4>
-                <a href="tel:+918139805996">+91 8139 805 996</a>
-              </div>
-            </div>
-
-            <div className="contact-info__item">
-              <div className="contact-info__icon">
-                <Instagram size={18} />
-              </div>
-              <div>
-                <h4>Instagram</h4>
+            <div className="contact-social-block">
+              <h3 className="contact-social-title">Click to Connect</h3>
+              <div className="contact-social-icons">
                 <a
                   href="https://www.instagram.com/produit.academy/"
                   target="_blank"
                   rel="noreferrer"
+                  className="social-green-btn"
+                  aria-label="Instagram"
                 >
-                  @produit.academy
+                  <Instagram size={22} />
+                </a>
+                <a
+                  href="https://facebook.com/produitacademy"
+                  target="_blank"
+                  rel="noreferrer"
+                  className="social-green-btn"
+                  aria-label="Facebook"
+                >
+                  <Facebook size={22} />
+                </a>
+                <a
+                  href="https://linkedin.com/company/produit-academy"
+                  target="_blank"
+                  rel="noreferrer"
+                  className="social-green-btn"
+                  aria-label="LinkedIn"
+                >
+                  <Linkedin size={22} />
                 </a>
               </div>
             </div>
           </div>
 
-          {/* Form */}
-          <form className="contact-form" onSubmit={handleSubmit} noValidate>
-            {/* Honeypot field (hidden from real users, filled by bots) */}
-            <div style={{ display: 'none' }} aria-hidden="true">
-              <label htmlFor="contact-website">Leave this field blank</label>
-              <input
-                id="contact-website"
-                type="text"
-                name="website"
-                value={honeypot}
-                onChange={(e) => setHoneypot(e.target.value)}
-                tabIndex="-1"
-                autoComplete="off"
-              />
-            </div>
-
-            <div className="form-group">
-              <label htmlFor="contact-name">Full Name *</label>
-              <input
-                id="contact-name"
-                name="name"
-                type="text"
-                required
-                placeholder="Your full name"
-                value={form.name}
-                onChange={handleChange}
-                style={errors.name ? { borderColor: '#ef4444' } : undefined}
-              />
-              {errors.name && (
-                <span style={{ fontSize: '0.8rem', color: '#ef4444', marginTop: '4px', display: 'block' }}>
-                  {errors.name}
-                </span>
-              )}
-            </div>
-
-            <div className="form-row">
-              <div className="form-group">
-                <label htmlFor="contact-email">Email Address *</label>
-                <input
-                  id="contact-email"
-                  name="email"
-                  type="email"
-                  required
-                  placeholder="you@example.com"
-                  value={form.email}
-                  onChange={handleChange}
-                  style={errors.email ? { borderColor: '#ef4444' } : undefined}
-                />
-                {errors.email && (
-                  <span style={{ fontSize: '0.8rem', color: '#ef4444', marginTop: '4px', display: 'block' }}>
-                    {errors.email}
-                  </span>
+          {/* Right Column: Enquiry Form Card */}
+          <div className="contact-form-card">
+            {submitted ? (
+              <div className="contact-success-state">
+                <CheckCircle size={56} className="text-accent mb-4" />
+                <h3 className="success-title">Thank You!</h3>
+                <p className="success-text">
+                  Your enquiry has been received. Our academic team will get in touch with you shortly.
+                </p>
+                <button
+                  className="btn-hero-primary mt-6"
+                  onClick={() => setSubmitted(false)}
+                >
+                  Send Another Message
+                </button>
+              </div>
+            ) : (
+              <form onSubmit={handleSubmit} className="enquiry-form">
+                {apiError && (
+                  <div className="contact-error-banner">
+                    <AlertCircle size={18} />
+                    <span>{apiError}</span>
+                  </div>
                 )}
-              </div>
-              <div className="form-group">
-                <label htmlFor="contact-phone">Mobile Number</label>
-                <input
-                  id="contact-phone"
-                  name="phone"
-                  type="tel"
-                  placeholder="+91 XXXXX XXXXX"
-                  value={form.phone}
-                  onChange={handleChange}
-                  style={errors.phone ? { borderColor: '#ef4444' } : undefined}
-                />
-                {errors.phone && (
-                  <span style={{ fontSize: '0.8rem', color: '#ef4444', marginTop: '4px', display: 'block' }}>
-                    {errors.phone}
-                  </span>
-                )}
-              </div>
-            </div>
 
-            <div className="form-group">
-              <label htmlFor="contact-message">Message *</label>
-              <textarea
-                id="contact-message"
-                name="message"
-                required
-                rows="4"
-                placeholder="Tell us about the subject or course you need assistance with..."
-                value={form.message}
-                onChange={handleChange}
-                style={errors.message ? { borderColor: '#ef4444' } : undefined}
-              />
-              {errors.message && (
-                <span style={{ fontSize: '0.8rem', color: '#ef4444', marginTop: '4px', display: 'block' }}>
-                  {errors.message}
-                </span>
-              )}
-            </div>
+                {/* Name */}
+                <div className="form-group">
+                  <label htmlFor="name" className="form-label">Name</label>
+                  <input
+                    type="text"
+                    id="name"
+                    name="name"
+                    value={form.name}
+                    onChange={handleChange}
+                    className={`form-input ${errors.name ? 'form-input--error' : ''}`}
+                    placeholder="Your Full Name"
+                  />
+                  {errors.name && <span className="form-error">{errors.name}</span>}
+                </div>
 
-            {apiError && (
-              <div
-                style={{
-                  display: 'flex',
-                  alignItems: 'center',
-                  gap: '8px',
-                  color: '#b91c1c',
-                  backgroundColor: '#fef2f2',
-                  padding: '10px 14px',
-                  borderRadius: '8px',
-                  fontSize: '0.88rem',
-                  marginBottom: '12px',
-                }}
-              >
-                <AlertCircle size={18} />
-                <span>{apiError}</span>
-              </div>
+                {/* Email & Phone Row */}
+                <div className="form-row">
+                  <div className="form-group">
+                    <label htmlFor="email" className="form-label">Email</label>
+                    <input
+                      type="email"
+                      id="email"
+                      name="email"
+                      value={form.email}
+                      onChange={handleChange}
+                      className={`form-input ${errors.email ? 'form-input--error' : ''}`}
+                      placeholder="you@domain.com"
+                    />
+                    {errors.email && <span className="form-error">{errors.email}</span>}
+                  </div>
+
+                  <div className="form-group">
+                    <label htmlFor="phone" className="form-label">Mobile No.</label>
+                    <input
+                      type="tel"
+                      id="phone"
+                      name="phone"
+                      value={form.phone}
+                      onChange={handleChange}
+                      className={`form-input ${errors.phone ? 'form-input--error' : ''}`}
+                      placeholder="+91 00000 00000"
+                    />
+                    {errors.phone && <span className="form-error">{errors.phone}</span>}
+                  </div>
+                </div>
+
+                {/* I'm Interested In */}
+                <div className="form-group">
+                  <label htmlFor="interest" className="form-label">I'm Interested In</label>
+                  <select
+                    id="interest"
+                    name="interest"
+                    value={form.interest}
+                    onChange={handleChange}
+                    className="form-input form-select"
+                  >
+                    <option value="Classes 6-12 Tuition">Classes 6-12 Tuition</option>
+                    <option value="GATE Preparation">GATE Preparation</option>
+                    <option value="Career Opportunities">Career Opportunities</option>
+                    <option value="General Enquiry">General Enquiry</option>
+                  </select>
+                </div>
+
+                {/* Message */}
+                <div className="form-group">
+                  <label htmlFor="message" className="form-label">Message</label>
+                  <textarea
+                    id="message"
+                    name="message"
+                    rows={4}
+                    value={form.message}
+                    onChange={handleChange}
+                    className={`form-input form-textarea ${errors.message ? 'form-input--error' : ''}`}
+                    placeholder="Tell us what you're looking for..."
+                  />
+                  {errors.message && <span className="form-error">{errors.message}</span>}
+                </div>
+
+                {/* Send Enquiry Button */}
+                <div className="form-submit-wrapper">
+                  <button
+                    type="submit"
+                    disabled={sending}
+                    className="btn-send-enquiry"
+                  >
+                    <span className="btn-send-icon-badge">
+                      <Send size={16} />
+                    </span>
+                    <span>{sending ? 'Sending...' : 'Send Enquiry'}</span>
+                  </button>
+                </div>
+              </form>
             )}
-
-            <button
-              type="submit"
-              className="btn btn--primary btn--lg contact-form__submit"
-              disabled={sending}
-            >
-              {sending ? (
-                'Sending Inquiry...'
-              ) : submitted ? (
-                <>
-                  <CheckCircle size={18} /> Message Received!
-                </>
-              ) : (
-                <>
-                  <Send size={18} /> Send Message
-                </>
-              )}
-            </button>
-
-            {submitted && (
-              <motion.p
-                className="contact-form__success"
-                initial={{ opacity: 0, y: 10 }}
-                animate={{ opacity: 1, y: 0 }}
-                style={{ color: '#15803d', fontWeight: 500, marginTop: '12px' }}
-              >
-                Thank you! Your inquiry has been safely received. Our academic coordinator will contact you shortly.
-              </motion.p>
-            )}
-          </form>
+          </div>
         </div>
       </div>
     </section>
